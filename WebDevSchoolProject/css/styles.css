@@ -1,0 +1,125 @@
+body {
+  background-color: #fff1e6;
+  width: 1860px;
+  height: 1050px;
+  animation-name: opening;
+  animation-duration: 700ms;
+}
+/* fff1e6 */
+header {
+  width: 100%;
+}
+
+p {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: larger;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+a :hover {
+  background-color: #ccc;
+  transition: 1s;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+img :hover {
+  background-color: #ccc;
+  transition: 1s;
+}
+
+h1 {
+  font-family: "Courier New", Courier, monospace;
+  width: 80%;
+  background-color: #ccc;
+  padding: 5px 0px 5px 10px;
+}
+
+ul li {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+dt {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+dd {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@keyframes opening {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes sizechange {
+  0% {
+    opacity: 0;
+    width: 0px;
+  }
+  100% {
+    opacity: 1;
+    width: 500px;
+  }
+}
+
+@keyframes fadeandexpand {
+  0% {
+    opacity: 0;
+    width: 0px;
+  }
+  100% {
+    opacity: 1;
+    width: 650px;
+  }
+}
+
+textarea {
+  width: 300px;
+  height: 100px;
+  resize: none;
+}
+
+form {
+  background-color: #fffdd0;
+  border: 3px solid black;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+input[type="button"] {
+  border-radius: 10px;
+}
+
+main {
+  height: 1000px;
+}
+
+table {
+  text-align: left;
+}
+
+td {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+
+img {
+  width: 300px;
+}

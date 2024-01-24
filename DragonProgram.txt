@@ -1,0 +1,267 @@
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random; 
+import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+public class ElementalDragonGame implements ActionListener{
+	static Random G = new Random(); Scanner kb = new Scanner(System.in); 
+	static int BHP = G.nextInt(300)+100, an = 0; 
+	static double A75 = BHP*0.75, B50 = BHP*0.50, C25 = BHP*0.25, D5 = BHP*0.05; 
+	String ca = "", de = DE(), a = AE(); //System.out.println("\t\t\t\tA " + de + " drake appeared!");
+	public JLabel message, HP, dragonmessage;
+	public static JPanel HPpanel, messagepanel, P1;
+	public static JFrame frame;
+	public static void main (String[] args){ 
+		new ElementalDragonGame();
+	}
+
+	public void ElementalDragon() {
+		Random G = new Random(); Scanner kb = new Scanner(System.in); int BHP = G.nextInt(300)+100, an = 0; double A75 = BHP*0.75, B50 = BHP*0.50, C25 = BHP*0.25, D5 = BHP*0.05; 
+		String ca = "", de = DE(), a = AE(); System.out.println("\t\t\t\tA " + de + " drake appeared!");
+		while (BHP > (int)A75){
+			BHP = GS(de, BHP, an, kb, a, ca);
+		}
+		de = DE(); ECM(de);
+		while (BHP > (int)B50){
+			BHP = GS(de, BHP, an, kb, a, ca);
+		}
+		de = DE(); ECM(de);
+		while (BHP > (int)C25){
+			BHP = GS(de, BHP, an, kb, a, ca);
+		}
+		de = DE(); ECM(de);
+		while (BHP > (int)D5){
+			BHP = GS(de, BHP, an, kb, a, ca);
+		}
+		de = DE(); ECM(de);
+		while (BHP > 0){
+			BHP = GS(de, BHP, an, kb, a, ca);
+		}
+		System.out.println("\t\t\tYou have defeated the Elemental drake!" + "\n\t\t\t\t******END OF TEST******");
+	}
+
+	static int GS(String de, int BHP, int an, Scanner kb, String a, String ca){ 
+		System.out.println("\t\t\t\t" + AE() + "\n\t\t\t\t" + de + " drake: " + BHP + " HP" + TA()); an = kb.nextInt();
+		if (an > 0 && an <= 5) { AC(an);
+		do {
+			System.out.println("\t\t\t\tUse " + AC(an) + "? Yes / No?"); ca = kb.next();
+			if (ca.equalsIgnoreCase("Yes")){
+				System.out.println("\t\t\t\tPlayer used " + AC(an) + "!"); BHP = DD(BHP, AC(an), de);
+			} else if (ca.equalsIgnoreCase("No")){
+				System.out.println(TA()); an = kb.nextInt(); AC(an);
+			} else {
+				do{IR(); ca = kb.next();} while (!ca.equalsIgnoreCase("Yes") && !ca.equalsIgnoreCase("No"));
+				if (ca.equalsIgnoreCase("No")){
+					System.out.println(TA()); an = kb.nextInt(); AC(an);
+				} else if (ca.equalsIgnoreCase("Yes")){
+					System.out.println("\t\t\t\tPlayer used " + AC(an) + "!"); BHP = DD(BHP, AC(an), de);
+				}
+			} 
+		}while (!ca.equalsIgnoreCase("Yes"));
+		} else { System.out.println("Invalid attack! Choose only 1 to 5!"); } // Change to buttons
+		return BHP;
+	}
+
+	static String DE() { 
+		Random G = new Random(); int elementN = G.nextInt(5)+1; String element = "";
+		switch (elementN) {
+		case 1: element = "Fire"; break; case 2: element = "Earth"; break; case 3: element = "Water"; break; case 4: element = "Steel"; break; case 5: element = "Wood"; break;
+		}
+		return element;
+	}
+
+	static String AE(){ 
+		Random generate = new Random(); int areaN = generate.nextInt(5)+1; String area = "";
+		switch (areaN){
+		case 1: area = "The drake gazes towards its enemy!"; break; case 2: area = "The ground rumbles hard!"; break; case 3: area = "The drake roars!"; break;
+		case 4: area = "'You dare face me?'"; break; case 5: area = "'Feel my wrath!'"; break;
+		}
+		return area;
+	}
+
+	static String AC(int attackn){ 
+		String attack = "";
+		switch (attackn) {
+		case 1: attack = "Fire slash"; break; case 2: attack = "Rock pound"; break; case 3: attack = "Water slash"; break; case 4: attack = "Steel slash"; break; case 5: attack = "Druid slash"; break;
+		}
+		return attack;
+	}
+
+	static int DD(int BossHP, String attackn, String DragonElement) { 
+		double damage = 13, SEM = 1.6; int NBHP = BossHP; String message = "\t\t\t\tAttack is super effective!";
+		if (attackn.equalsIgnoreCase("Fire Slash") && DragonElement.equalsIgnoreCase("Steel")) {
+			damage = damage*SEM; NBHP = BossHP - (int)damage; System.out.println(message);
+		}else if (attackn.equalsIgnoreCase("Rock Pound") && DragonElement.equalsIgnoreCase("Water")) {
+			damage = damage*SEM; NBHP = BossHP - (int)damage; System.out.println(message);
+		}else if (attackn.equalsIgnoreCase("Water Slash") && DragonElement.equalsIgnoreCase("Fire")) {
+			damage = damage*SEM; NBHP = BossHP - (int)damage; System.out.println(message);
+		}else if (attackn.equalsIgnoreCase("Steel slash") && DragonElement.equalsIgnoreCase("Wood")) {
+			damage = damage*SEM; NBHP = BossHP - (int)damage; System.out.println(message);
+		}else if (attackn.equalsIgnoreCase("Druid Slash") && DragonElement.equalsIgnoreCase("Earth")) {
+			damage = damage*SEM; NBHP = BossHP - (int)damage; System.out.println(message);
+		} else {damage = damage*0.75; NBHP = BossHP - (int)damage;}
+		return NBHP;
+	}
+
+	static String EC(String de) { 
+		Random G = new Random(); int elementN = G.nextInt(4)+1; String element = "";
+		if (de.equals("Fire")){
+			switch (elementN) {case 1: element = "Wood"; break; case 2: element = "Earth"; break; case 3: element = "Water"; break; case 4: element = "Steel"; break;}
+		}
+		if (de.equals("Earth")){
+			switch (elementN) {case 1: element = "Fire"; break; case 2: element = "Wood"; break; case 3: element = "Water"; break; case 4: element = "Steel"; break;}
+		}
+		if (de.equals("Water")){
+			switch (elementN) {case 1: element = "Fire"; break; case 2: element = "Earth"; break; case 3: element = "Wood"; break; case 4: element = "Steel"; break;}
+		}
+		if (de.equals("Steel")){
+			switch (elementN) {case 1: element = "Fire"; break; case 2: element = "Earth"; break; case 3: element = "Water"; break; case 4: element = "Wood"; break;}
+		}
+		if (de.equals("Wood")){
+			switch (elementN) {case 1: element = "Fire"; break; case 2: element = "Earth"; break; case 3: element = "Water"; break; case 4: element = "Steel"; break;}
+		}
+		return element;
+	}
+
+	static String TA() {
+		String message = "\nType in your attack!" + "\n1: Fire slash \n2: Rock pound \n3: Water slash \n4: Steel slash \n5: Druid slash"; return message;
+	}
+
+	static void ECM(String de) {
+		System.out.println("\tThe drake changed its elemental power! The drake changed into a " + EC(de) + " drake!");
+	}
+
+	static void IR() {
+		System.out.println("Invalid response! Yes / No?");
+	}
+
+	public ElementalDragonGame() {
+		//frame
+		frame = new JFrame("Elemental Dragon");
+		frame.setPreferredSize(new Dimension(400, 140)); frame.setVisible(true); frame.pack();
+
+		//panels
+		HPpanel = new JPanel(); HPpanel.setBackground(Color.GREEN);
+		messagepanel = new JPanel();
+
+		//labels
+		HP = new JLabel();
+		message = new JLabel();
+		dragonmessage = new JLabel();
+
+		//set labels
+		HP.setText(de + " drake HP: " + BHP);
+		message.setText("A " + de + " drake appeared!");
+		dragonmessage.setText(a = AE());
+
+		//add labels to panels
+		HPpanel.add(HP);
+		HPpanel.add(dragonmessage);
+		messagepanel.add(message);
+
+
+		P1 = new JPanel(new GridLayout(0,3));
+		JButton[] AB = new JButton[5]; String ab[] = {"Fire Blast", "Ancient Power", "Hydro Vortex", "Steel Wing", "Leaf Storm"};
+		for(int i = 0; i < AB.length; i++) {
+			AB[i] = new JButton(ab[i]);
+			AB[i].setActionCommand(ab[i]);
+			AB[i].addActionListener(this); 
+			P1.add(AB[i]); 
+		}//end of P1
+
+		frame.add(HPpanel, BorderLayout.PAGE_START);
+		frame.add(messagepanel, BorderLayout.CENTER);
+		frame.add(P1, BorderLayout.SOUTH);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		double damage = 13, SEM = 1.6; String AM = "Player used " + e.getActionCommand() + "!" + " Attack is super effective!";
+		if (e.getActionCommand() == "Fire Blast" && de.equals("Steel")) {
+			damage = damage*SEM; BHP = BHP-(int)damage;
+			message.setText(AM);
+			dragonmessage.setText(a = AE());
+		} else if (e.getActionCommand() == "Ancient Power" && de.equals("Water")) {
+			damage = damage*SEM; BHP = BHP-(int)damage;
+			message.setText(AM);
+			dragonmessage.setText(a = AE());
+		} else if (e.getActionCommand() == "Hydro Vortex" && de.equals("Fire")) {
+			damage = damage*SEM; BHP = BHP-(int)damage;
+			message.setText(AM);
+			dragonmessage.setText(a = AE());
+		} else if (e.getActionCommand() == "Steel Wing" && de.equals("Wood")) {
+			damage = damage*SEM; BHP = BHP-(int)damage;
+			message.setText(AM);
+			dragonmessage.setText(a = AE());
+		} else if (e.getActionCommand() == "Leaf Storm" && de.equals("Earth")) {
+			damage = damage*SEM; BHP = BHP-(int)damage;
+			message.setText(AM);
+			dragonmessage.setText(a = AE());
+		} else {
+			message.setText("Player used " + e.getActionCommand() + "!");
+			dragonmessage.setText(a = AE());
+			BHP = BHP-(int)damage;
+		}
+		HP.setText(de + " drake HP: " + BHP);
+		if (BHP <= (int)A75) {
+			de = DE();
+			HPpanel.setBackground(Color.YELLOW);
+			A75 = 1000;
+		}
+		if (BHP <= (int)B50) {
+			de = DE();
+			HPpanel.setBackground(Color.ORANGE);
+			B50 = 1000;
+		}
+		if (BHP <= (int)C25) {
+			de = DE();
+			HPpanel.setBackground(Color.PINK);
+			C25 = 1000;
+		}
+		if (BHP <= (int)D5) {
+			de = DE();
+			HPpanel.setBackground(Color.RED);
+			D5 = 1000;
+		}
+		if (BHP <= 0) {
+			HP.setText(de + " drake: 0"); dragonmessage.setText("");
+			message.setText("You defeated the Elemental Drake!");
+			frame.remove(P1);
+		}
+
+	}
+}
+
+/*
+ * CB = new JButton[2]; String cb[] = {"Yes", "No"};
+					for(int ii = 0; ii <CB.length; ii++) {
+						CB[ii] = new JButton(cb[ii]);
+						AB[ii].setActionCommand(cb[ii]);
+						AB[ii].addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent b) {
+								String confirm = b.getActionCommand();
+							} 
+						}); P3.add(CB[ii]);
+					}
+ */
+
+
+//next step: add attack accuracy and critical rates (RNG)
+//next step: make the dragon attack based on its selected element(include accuracy, crit rate)
+//Damage balances
+//confirm buttons: Yes and no
+//attack buttons: 5
+//toal buttons: 7

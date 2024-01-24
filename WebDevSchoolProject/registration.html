@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ninth Sixteenth: Registration</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div style="padding: 0px 0px 3px; background-color: #ccc">
+      <header>
+        <div style="text-align: center; background-color: #fff1e6">
+          <img style="width: 40%" src="images/logo-no-background.png" alt="" />
+        </div>
+      </header>
+    </div>
+    <div style="width: 100%">
+      <div style="width: 13%; background-color: #fff1e6; float: left">
+        <nav>
+          <a href="home.html"><p>Home</p></a>
+          <div style="padding: 0px 0px 3px; background-color: #ccc"></div>
+          <a href="about-us.html"><p>About Us</p></a>
+          <div style="padding: 0px 0px 3px; background-color: #ccc"></div>
+          <a href="contact-us.html"><p>Contact Us</p></a>
+          <div style="padding: 0px 0px 3px; background-color: #ccc"></div>
+          <a href="registration.html"
+            ><p style="background-color: #ccc">
+              Apply or Upload <br /><img
+                style="width: 30px"
+                src="images/form.png"
+                alt="form icon"
+              /></p
+          ></a>
+          <div style="padding: 0px 0px 3px; background-color: #ccc"></div>
+          <a href="verticalAR.html"><p>The Vertical Gallery</p></a>
+          <a href="horizontalAR.html"><p>The Horizontal Gallery</p></a>
+          <div style="padding: 0px 0px 3px; background-color: #ccc"></div>
+          <a href="photographers.html"><p>Photographers</p></a>
+          <div style="padding: 0px 0px 3px; background-color: #ccc"></div>
+        </nav>
+      </div>
+    </div>
+    <div style="width: 85%; float: right">
+      <main style="height: 1180px">
+        <h1>Be part of the team!</h1>
+        <form style="width: 860px">
+          <fieldset>
+            <legend>APPLICATION FORM</legend>
+            <p style="text-align: left; padding: 0px">
+              If you are interested in joining our team of photographers, fill
+              up this form and experience the full benefits of being part of the
+              team!
+            </p>
+            <fieldset>
+              <legend>NAME</legend>
+              <label>Enter your full name:</label><br /><br />
+              <label>First name:</label>
+              <input type="text" name="fName" size="10" required />
+
+              <label>Middle name:</label>
+              <input type="text" name="mName" size="10" />
+
+              <label>Last name:</label>
+              <input type="text" name="lName" size="10" required />
+            </fieldset>
+            <fieldset>
+              <legend>ADDRESS</legend>
+              <label>Enter your address:</label><br /><br />
+              <label>Home address:</label>
+              <input type="text" name="hAddress" required />
+
+              <label>City:</label>
+              <input type="text" name="cityName" size="12" required />
+
+              <label>Province:</label>
+              <select id="Provinces">
+                <option value="British Columbia">BC</option>
+                <option value="Alberta">AB</option>
+                <option value="Saskatchewan">SK</option>
+                <option value="Manitoba">MB</option>
+                <option value="Ontario">ON</option>
+                <option value="Quebec">QC</option>
+                <option value="Newfoundland">NL</option>
+                <option value="Nunavut">NU</option>
+                <option value="Northwest Territories">NT</option>
+                <option value="Yukon">YT</option>
+              </select>
+
+              <label>Postal code:</label>
+              <input
+                type="text"
+                name="pcCode"
+                maxlength="7"
+                size="7"
+                required
+              />
+            </fieldset>
+            <fieldset>
+              <legend>CONTACT</legend>
+              <label>Contact Information:</label><br /><br />
+              <label>E-mail address:</label>
+              <input type="text" name="email" required />
+
+              <label>Phone number:</label>
+              <input type="text" name="phone#" size="10" max="10" />
+            </fieldset>
+
+            <fieldset>
+              <legend>USER PROFILE</legend>
+              <label>Create your user profile:</label><br /><br />
+              <label>Username:</label>
+              <input
+                type="text"
+                name="uName"
+                maxlength="15"
+                size="15"
+                required
+              />
+
+              <label>Password:</label>
+              <input
+                type="password"
+                name="createPassword"
+                size="16"
+                maxlength="16"
+                required
+              />
+
+              <label> Re-enter password:</label>
+              <input
+                type="password"
+                name="confirmPassword"
+                size="16"
+                maxlength="16"
+                required
+              />
+            </fieldset>
+            <br />
+            <label>Upload your Resume:</label><br />
+            <input
+              style="background-color: #ccc"
+              type="file"
+              name="resumeUpload"
+              required
+            /><br /><br />
+            <input
+              style="border-radius: 5px; width: 250px; height: 25px"
+              type="submit"
+              name="Submit Application Form"
+              value="Create and Submit Application Profile"
+            />
+            <input
+              style="border-radius: 5px; height: 25px"
+              type="reset"
+              value="Clear Form"
+            />
+            <p style="text-align: left; padding: 0px">
+              *You will be contacted for an interview within a week of
+              submitting the application. Please wait for futher notice!
+            </p>
+          </fieldset>
+        </form>
+        <br />
+        <h1>Have a photo to share to the world?</h1>
+        <form style="width: 320px">
+          <fieldset>
+            <legend>PHOTO UPLOAD FORM</legend>
+            <label>Username:</label>
+            <input type="text" name="uName" required />
+            <br /><br />
+            <label>Photo Title</label>
+            <input type="text" name="titleName" required />
+            <br /><br />
+            <label>Upload your photo:</label><br />
+            <input
+              style="background-color: #ccc"
+              type="file"
+              name="photoUpload"
+              required
+            />
+            <br /><br />
+            <label>Vertical (9:16)</label>
+            <input type="checkbox" name="verticalCheckbox" />
+            <label>Horizontal (16:9)</label>
+            <input type="checkbox" name="horizontalCheckbox" />
+            <br /><br />
+            <input
+              style="border-radius: 5px; width: 100px; height: 25px"
+              type="submit"
+              name="Submit photo button"
+              value="Submit Photo"
+            />
+            <input
+              style="border-radius: 5px; height: 25px"
+              type="reset"
+              value="Clear Form"
+            />
+          </fieldset>
+        </form>
+      </main>
+      <div style="padding: 0px 0px 3px; background-color: #ccc"></div>
+      <footer style="width: 100%; padding: 10px; text-align: center">
+        Developed and powered by Allen Villarin <br />
+        <a href="https://www.instagram.com/justclark.21/" target="_blank"
+          ><img
+            style="width: 50px"
+            src="images/instagram.png"
+            alt="Instagram Logo"
+        /></a>
+        <a href="https://www.facebook.com/allenclark9821" target="_blank"
+          ><img
+            style="width: 50px"
+            src="images/facebook.png"
+            alt="Facebook Logo"
+        /></a>
+        <a
+          href="https://www.youtube.com/channel/UCtxaRKSs6rus2CPDODwAY9w"
+          target="_blank"
+          ><img style="width: 50px" src="images/youtube.png" alt="Youtube Logo"
+        /></a>
+      </footer>
+    </div>
+  </body>
+</html>

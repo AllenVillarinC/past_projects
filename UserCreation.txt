@@ -1,0 +1,78 @@
+/**
+ * create a program that asks a 8-16 character password that requires at least 1 Upper case letter, special character,
+ * and a digit. use JOption pane.
+ */
+
+import javax.swing.JOptionPane;
+public class JOptionPanePractice{
+	public static void main (String[] args){
+		int U = 0, n = 0, s = 0;
+		String r = "", Cp = "";
+		String E1, E2, E3, E4, E5, E6;
+		E1 = "*Must have at least 1 upper case letter.";
+		E2 = "*Must have at least 1 number.";
+		E3 = "*Must have at least 1 special character.";
+		E4 = "*Must be 8-16 characters long";
+		E5 = "*Enter your password:";
+		E6 = "Password is invalid";
+		JOptionPane.showMessageDialog(null, "Welcome to the password program!");
+		String p = JOptionPane.showInputDialog("Create your password."); // Ok, cancel option needed
+		do{
+			if (p.length() >= 8 && p.length() <= 16){
+				for (int i=0; i<p.length(); i++){
+					char c = p.charAt(i);
+					if (Character.isLetter(c) && Character.isUpperCase(c)){
+						U++;
+					}
+					else if (Character.isDigit(c)){
+						n++;
+					}
+					else if (!Character.isLetter(c) && !Character.isDigit(c)){
+						s++;
+					}
+				}
+				if (U == 0 && n == 0 && s == 0){
+					p = JOptionPane.showInputDialog(E6 + "\n" + E1 + "\n" + E2 + "\n" + E3 + "\n" + E5);
+				} else if (U == 0 && n == 0){
+					p = JOptionPane.showInputDialog(E6 + "\n" + E1 + "\n" + E2 + "\n" + E5);
+				} else if (U == 0 && s == 0){
+					p = JOptionPane.showInputDialog(E6 + "\n" + E1 + "\n" + E3 + "\n" + E5);
+				} else if (n == 0 && s == 0){
+					p = JOptionPane.showInputDialog(E6 + "\n" + E2 + "\n" + E3 + "\n" + E5);
+				} else if (U == 0){
+					p = JOptionPane.showInputDialog(E6 + "\n" + E1 + "\n" + E5);
+				} else if (n == 0){
+					p = JOptionPane.showInputDialog(E6 + "\n" + E2 + "\n" + E5);
+				} else if (s == 0){
+					p = JOptionPane.showInputDialog(E6 + "\n" + E3 + "\n" + E5);
+				} else if (U != 0 && n != 0 && s != 0){
+					Cp = JOptionPane.showInputDialog("Enter password again");
+					do {
+						if (!Cp.equals(p)){
+							Cp = JOptionPane.showInputDialog("Password does not match \n *Enter password again:");
+						}
+					} while (!Cp.equals(p));
+					if (Cp.equals(p)){
+						r = JOptionPane.showInputDialog("Password is valid. \nCreate new password? (Yes / No)");
+						if (r.equalsIgnoreCase("yes")){
+							p = JOptionPane.showInputDialog("Create new password");
+						}
+					}
+				}
+				U = 0;
+				n = 0;
+				s = 0;
+			}else{
+				if (p.length() < 8 || p.length() > 16){
+					JOptionPane.showMessageDialog(null, "Password is invalid" + "\n" + E4 + "\n" + "Total characters: " + p.length());
+					p = JOptionPane.showInputDialog("Create your password." + "\n" + E4);
+				}
+			}
+		}while (!r.equalsIgnoreCase("no"));
+		JOptionPane.showMessageDialog(null, "Goodbye!");
+	}
+}
+
+/**
+ * 
+ */
